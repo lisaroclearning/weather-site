@@ -114,8 +114,11 @@ body.is-dark-mode {
 }
 
 .city-tile p {
-  margin-top: 0.5rem;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* --------------------------------------------------
