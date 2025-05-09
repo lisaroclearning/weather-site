@@ -49,6 +49,10 @@ On smaller screens, navigation is accessible via a hamburger menu in the top-rig
 ## FONTS  
 Google Fonts: Orbitron  
 
+## JAVASCRIPT LIBRARIES  
+Day.js – for date handling in the 7-day forecast  
+Prettier – used for automated code formatting  
+
 ## IMAGES AND ICONS  
 Icons8.com  
 
