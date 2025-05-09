@@ -1,0 +1,32 @@
+<!--
+  File: nav.njk
+  Description: Primary site navigation including brand title and links.
+  Contains responsive hamburger menu for mobile views.
+-->
+
+<nav class="navbar is-light">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      WHETHER WEATHER
+    </a>
+
+    <!-- Hamburger Menu -->
+    <span class="navbar-burger" data-target="mainNav" aria-expanded="false">
+
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+</span>
+
+  </div>
+
+  <!-- Navigation Links -->
+  <div id="mainNav" class="navbar-menu">
+    <div class="navbar-end">
+      <a class="navbar-item" href="/">Dashboard</a>
+      <a class="navbar-item" href="/settings/">Settings</a>
+    </div>
+  </div>
+</nav>
+
+

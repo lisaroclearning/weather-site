@@ -1,0 +1,99 @@
+{# ================================================
+  File: settings.njk – Settings Page Template
+
+  This page allows users to:
+  - Select their default city
+  - Choose their favourite cities (max 6)
+  - Switch between light and dark mode
+  - Choose Celsius or Fahrenheit
+  - Save or reset these preferences
+
+  JS: settings.js handles form population and saving preferences.
+#} -------------------------------------------------
+
+---
+title: Settings
+---
+
+<!--load the settings.js script for this page -->
+{% set extraScripts = "/js/settings.js" %}
+
+{% extends "layout.njk" %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1 class="title has-text-white">Settings</h1>
+
+    <form id="preferences-form">
+      <div class="columns is-variable is-6">
+
+        <!-- LEFT BOX -->
+        <div class="column is-two-thirds">
+          <div class="box content-box">
+
+            <!-- Default City -->
+            <div class="field mt-0">
+              <label class="label has-text-white">Default City for Main Summary</label>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select name="default" id="default-city">
+                    <!-- Options will be injected via JavaScript -->
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Favourite Cities -->
+            <h2 class="subtitle has-text-white mt-4">Favourite Cities</h2>
+            <div class="field" id="favourite-city-list">
+              <!-- Checkboxes will be injected via JavaScript -->
+              <p class="help has-text-grey-light mt-2">Select up to 6 favourite cities.</p>
+
+              <!-- Warning if more than 6 selected -->
+              <p id="fave-warning" class="has-text-danger is-hidden">Please choose up to 6 favourites.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT BOX -->
+        <div class="column is-one-third">
+          <div class="box content-box">
+
+            <!-- Theme -->
+            <h2 class="subtitle has-text-white">Theme</h2>
+            <div class="field">
+              <label class="radio has-text-white">
+                <input type="radio" name="theme" value="light"> Light
+              </label><br>
+              <label class="radio has-text-white">
+                <input type="radio" name="theme" value="dark"> Dark
+              </label>
+            </div>
+
+            <!-- Units -->
+            <h2 class="subtitle has-text-white mt-4">Units</h2>
+            <div class="field">
+              <label class="radio has-text-white">
+                <input type="radio" name="units" value="celsius"> Celsius
+              </label><br>
+              <label class="radio has-text-white">
+                <input type="radio" name="units" value="fahrenheit"> Fahrenheit
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons mt-4">
+        <button id="save-btn" class="button is-link" type="submit">Save Preferences</button>
+        <button class="button is-link" type="button" id="reset-btn">Reset Preferences</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!--
+  File: current-summary.njk
+  Description: Nunjucks component for rendering the current day’s weather.
+  Displays temperature, real feel, wind speed, weather icon, and description.
+  Also includes container for the hourly forecast.
+-->
+
+<section class="content-box">
+  <h2 class="title is-4 has-text-white">
+    Today's Weather in <span id="city-name">---</span>
+  </h2>
+
+  <div class="columns is-vcentered is-multiline"> <!--vertically centered and will stack on smaller screens-->
+
+    <!--  LEFT: Temp + Real Feel + Wind -->
+    <div class="column is-half">
+      <p class="has-text-white" style="font-size: 12rem; line-height: 1;" id="today-temp">--°C</p>
+      <p class="has-text-white is-size-5 mt-4 mb-4" id="today-realfeel">Real Feel: --°C</p>
+      <p class="has-text-white is-size-5" id="today-wind">Wind: -- km/h</p>
+    </div>
+
+    <!-- RIGHT: Big Icon + Description lower -->
+    <div class="column has-text-centered">
+      <figure style="width: 200px; height: 200px; margin: 0 auto 0 auto;">
+        <img id="today-icon" src="/images/icons8-cloud-50.svg" alt="Weather Icon" style="width: 100%; height: 100%;" />
+      </figure>
+      <p class="has-text-white is-size-5 mt - 1" id="today-description">---</p>
+    </div>
+
+  </div>
+
+  <!-- Hourly Forecast Title -->
+  <h3 class="subtitle is-4 has-text-white mt-5 mb-3">Hourly Forecast</h3>
+
+  <!-- Hourly Forecast Container -->
+  <div id="hourly-forecast" class="columns is-mobile is-gapless mt-2"></div>
+</section>

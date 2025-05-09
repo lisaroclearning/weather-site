@@ -1,0 +1,63 @@
+<!--
+  File: layout.njk
+  Description: Base layout template for all pages.
+  Includes the head, global navigation, footer, and script loading.
+  Uses blocks for injecting page-specific content.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% if title %}{{ title }} | {% endif %}Whether Weather</title><!-- Dynamic page title used for browser tabs -->
+
+    <!-- Bulma CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+
+    {% if extraStyles %}
+      <link rel="stylesheet" href="{{ extraStyles }}"><!-- not actually used but included, as per example, for future proofing -->
+    {% endif %}
+  </head>
+
+  <body class="has-text-white-ter">
+
+    {% include "nav.njk" %} <!-- including nav partial-->
+
+    <main class="section">
+      <div class="container">
+        {% block content %}{% endblock %} <!-- placeholer to be filled with child templates (dashboard.njk, settings.njk, city.njk)-->
+      </div>
+    </main>
+
+    {% include "footer.njk" %} <!-- including footer partial-->
+
+  <!-- Load Day.js globally -->
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+<!-- Global helper scripts -->
+<script src="/js/data/weather_data.js"></script>
+<script src="/js/data/dataStore.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/data/weatherCodes.js"></script>
+<script src="/js/components/weatherSummary.js"></script>
+<script src="/js/components/futureForecast.js"></script>
+<script src="/js/components/nav.js"></script>
+
+{% if extraScripts %}
+  <script src="{{ extraScripts }}"></script> <!-- for page-specific scripts -->
+
+{% endif %}
+
+</body>
+
+</html>

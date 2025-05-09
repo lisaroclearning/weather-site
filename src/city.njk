@@ -1,0 +1,43 @@
+{# ==================================================
+  File: city.njk – City Focus Page
+
+  This shows detailed weather info for one selected city.
+  It includes:
+  - Today's summary (temp, real feel, wind, icon, description)
+  - Hourly forecast for next 6 hours
+  - 7-day forecast (in right column)
+  - A back button to return to the dashboard
+
+  - Uses partial templates for layout and reusable blocks.
+#}
+  ---------------------------------------------------
+
+---
+title: City Focus
+---
+
+<!--load the city.js script for this page -->
+{% set extraScripts = "/js/city.js" %}
+
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="columns is-variable is-6">
+
+  <!-- Left Column: Summary + Hourly -->
+  <div class="column is-two-thirds">
+    {% include "current-summary.njk" %}
+  </div>
+
+  <!-- Right Column: 7 Day Forecast -->
+  <div class="column">
+    {% include "seven-day-forecast.njk" %}
+  </div>
+
+</div>
+
+<!-- Back Button -->
+<a href="/" class="button is-link mt-4">← Back to Dashboard</a>
+
+{% endblock %}

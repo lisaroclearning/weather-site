@@ -1,0 +1,131 @@
+/* ==========================================================================
+  File: main.css – Global Styles
+   --------------------------------------------------------------------------
+   Description:  Stylesheet provides global design rules including font setup,
+   CSS variables, layout styling and component styling  (cards, tiles).
+
+
+/* --------------------------------------------------
+  Fonts
+-------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@300&display=swap");
+
+/* --------------------------------------------------
+  CSS Variables
+-------------------------------------------------- */
+:root {
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-bg-hover: rgba(255, 255, 255, 0.2);
+  --text-white: white;
+  --text-dark: #333;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------------------------------------
+  Global Styles
+-------------------------------------------------- */
+body {
+  font-family: "Orbitron", sans-serif;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--text-white);
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-overlay);
+  z-index: -1;
+}
+
+body.is-light-mode {
+  background-image: url("/images/lightbackground.jpg");
+}
+
+body.is-dark-mode {
+  background-image: url("/images/darkbackground.jpg");
+}
+
+.has-text-white,
+.city-tile,
+.city-tile .temp {
+  color: var(--text-white) !important;
+}
+
+/* --------------------------------------------------
+  Navbar
+-------------------------------------------------- */
+.navbar {
+  background-color: #f8f8f8;
+}
+
+/* --------------------------------------------------
+  Weather Cards
+-------------------------------------------------- */
+.content-box {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 0;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+/* --------------------------------------------------
+  City Tiles
+-------------------------------------------------- */
+.city-tile {
+  display: block;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.city-tile:hover {
+  background-color: var(--card-bg-hover);
+  transform: scale(1.03);
+}
+
+.city-tile img {
+  height: 50px;
+  margin-bottom: 0.5rem;
+}
+
+.city-tile .temp {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.city-tile p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------
+  Footer
+-------------------------------------------------- */
+.footer {
+  background-color: #f8f8f8;
+  padding: 2rem 1rem;
+}
+
+.footer p {
+  color: var(--text-dark);
+}

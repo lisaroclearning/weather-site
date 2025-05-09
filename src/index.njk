@@ -1,0 +1,49 @@
+{# =================================================
+  File: index.njk – Weather Dashboard Page
+
+  Description: This is the main homepage of the app. It shows:
+  - Today’s weather summary for the default city
+  - A scrollable grid of favourite city tiles
+  - A 7-day forecast for the default city
+
+  - Uses layout.njk for shared layout (nav, footer, etc.)
+#}
+  --------------------------------------------------
+
+---
+title: Dashboard
+---
+
+<!--load the dashboard.js script for this page --> {% set extraScripts = "/js/dashboard.js" %}
+
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="columns is-variable is-6 is-flex-direction-column-mobile">
+
+  <!-- Left Column: Summary + City Tiles stacked -->
+  <div class="column is-two-thirds is-flex is-flex-direction-column">
+
+    <!-- Summary -->
+    <div class="mb-5">
+      {% include "current-summary.njk" %}
+    </div>
+
+    <!-- City Tiles -->
+    <div class="column mt-0 mb-0">
+      <section class="section">
+        <h2 class="title is-4 has-text-white">City Focus</h2>
+        <div id="city-tiles" class="columns is-multiline"></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Right Column: 7 Day Forecast -->
+  <div class="column">
+    {% include "seven-day-forecast.njk" %}
+  </div>
+
+</div>
+
+{% endblock %}
