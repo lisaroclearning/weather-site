@@ -8,32 +8,32 @@
 --------------------------------------------------------------------------*/
 
 window.weather.weatherIcons = {
-  0: "icons8-summer-50.svg",
-  1: "icons8-partly-cloudy-day-50.svg",
-  2: "icons8-cloud-50.svg",
-  3: "icons8-clouds-50.svg",
-  45: "icons8-wind-50.svg",
-  48: "icons8-wind-50.svg",
-  51: "icons8-light-rain-50.svg",
-  53: "icons8-light-rain-50.svg",
-  55: "icons8-rain-cloud-50.svg",
-  61: "icons8-rain-50.svg",
-  63: "icons8-heavy-rain-50.svg",
-  65: "icons8-heavy-rain-50-2.svg",
-  66: "icons8-umbrella-50.svg",
-  67: "icons8-umbrella-50.svg",
-  71: "icons8-light-snow-50.svg",
-  73: "icons8-snow-50.svg",
-  75: "icons8-heavy-rain-50.svg",
-  77: "icons8-sleet-50.svg",
-  80: "icons8-rain-50.svg",
-  81: "icons8-heavy-rain-50.svg",
-  82: "icons8-heavy-rain-50-2.svg",
-  85: "icons8-snow-50.svg",
-  86: "icons8-snow-50.svg",
-  95: "icons8-storm-50.svg",
-  96: "icons8-stormy-weather-50.svg",
-  99: "icons8-stormy-weather-50.svg",
+  0: "icons8-summer-50.svg", //sun
+  1: "icons8-partly-cloudy-day-50.svg", //sun behind cloud
+  2: "icons8-clouds-50.svg", //blue cloud
+  3: "icons8-cloud-50.svg", //cloudy sun
+  45: "icons8-fog.svg", //fog
+  48: "icons8-fog.svg", //fog
+  51: "icons8-light-rain-50.svg", //1 drop cloud
+  53: "icons8-rain-50.svg", //3 drop rain
+  55: "icons8-heavy-rain-50.svg", //heavy drizzle rain
+  61: "icons8-umbrella-50.svg", //umbrella
+  63: "icons8-rain-cloud-50.svg", // moderate rain sun
+  65: "icons8-heavy-rain-50-2.svg", //heavy rain
+  66: "icons8-sleet-50.svg", //ice rain cloud
+  67: "icons8-sleet-50.svg", //ice rain cloud
+  71: "icons8-snow-50.svg", //snow
+  73: "icons8-snow-50.svg", //snow
+  75: "icons8-snow-50.svg", //snow
+  77: "icons8-sleet-50.svg", // icy rain cloud
+  80: "icons8-umbrella-50.svg", //umbrella
+  81: "icons8-heavy-rain-50.svg", //heavy rain
+  82: "icons8-heavy-rain-50-2.svg", // heavier rain
+  85: "icons8-snow-50.svg", //snow
+  86: "icons8-snow-50.svg", //snow
+  95: "icons8-storm-50.svg", //lightening cloud
+  96: "icons8-stormy-weather-50.svg", // lightening sun
+  99: "icons8-cloud-lightening-50.svg", // angry lightening cloud
 };
 
 window.weather.weatherDescriptions = {

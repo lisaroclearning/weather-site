@@ -105,9 +105,12 @@ body.is-dark-mode {
   City Tiles
 -------------------------------------------------- */
 .city-tile {
-  display: block;
-  text-align: center;
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center all content vertically */
+  padding: 2rem;
+  height: 100%; /* Force consistent height in column layout */
   background-color: var(--card-bg);
   border-radius: 1rem;
   text-decoration: none;
@@ -123,10 +126,10 @@ body.is-dark-mode {
 }
 
 .city-tile img {
-  height: 50px;
+  height: 48px;
+  width: 48px;
+  object-fit: contain; /* Ensure image stays within bounds */
   margin-bottom: 0.5rem;
-  max-width: 100%;
-  height: auto;
 }
 
 .city-tile .temp {
