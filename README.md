@@ -1,4 +1,4 @@
-AUTHOR: Lisa Mulholland.
+AUTHOR: Lisa Mulholland
 Student: Id. W20114751
 
 TITLE
