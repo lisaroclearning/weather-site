@@ -10,7 +10,7 @@ This is a dynamic weather forecasting web page created for a SETU course assignm
 It fetches weather data locally and updates the UI using JavaScript and user preferences saved in localStorage.  
 The app supports theme switching, favourite city selection, and mobile responsiveness.
 
-# TECH STACK  
+# TECH USED  
 The website was built with:  
 - Sublime  
 - Eleventy  
