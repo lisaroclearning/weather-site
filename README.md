@@ -1,5 +1,5 @@
-AUTHOR: Lisa Mulholland
-Student Id. W20114751
+AUTHOR: Lisa Mulholland.
+Student: Id. W20114751
 
 TITLE
 Whether Weather
