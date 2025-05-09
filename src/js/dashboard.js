@@ -18,6 +18,56 @@
 
 --------------------------------------------------------------------------*/
 
+// -----------------------------------------------------------
+// Function: renderCityTiles(prefs)
+// Description: This builds the clickable city tiles on the dashboard
+// showing a mini weather summary for each favourite city.
+// -----------------------------------------------------------
+function renderCityTiles(prefs) {
+  // Get the user's list of favourite cities
+  const favourites = prefs.favourites || weather.utils.defaultPrefs.favourites;
+
+  const isFahrenheit = prefs.units === "fahrenheit"; // Check if user wants Fahrenheit instead of Celsius
+
+  const container = document.getElementById("city-tiles"); // Find the container where the city tiles will be added
+  if (!container) return; // Stop if the container isn't found
+
+  container.innerHTML = ""; // Clear out any existing tiles (e.g., if page is reloaded)
+
+  favourites.forEach((city) => {
+    // Loop through each favourite city
+
+    const daily = weather.dataStore.getDaily(city); // Get the daily weather data for that city
+
+    const cityObj = weather.dataStore.getByCity(city); // Get the city info (like label for display)
+
+    if (!daily || !cityObj) return; // Skip this city if the data isn't available
+
+    const code = daily.weather_code[0]; // Get the weather code for today (used to pick the icon)
+
+    const tempC = Math.round(daily.temperature_2m_max[0]); // Get today’s high temperature in Celsius and round it
+
+    const tempDisplay = isFahrenheit // Convert temperature to Fahrenheit if needed
+      ? weather.utils.toFahrenheit(tempC)
+      : tempC;
+
+    const icon = weather.weatherIcons[code] || "icons8-cloud-50.svg"; // Choose the correct weather icon, or use a cloud icon as default
+
+    const tile = document.createElement("div"); // Create a tile for this city and fill it with weather info
+    tile.className = "column is-one-third"; // Bulma layout class
+
+    tile.innerHTML = `
+      <a href="/city/?name=${city}" class="city-tile">
+        <div class="temp">${tempDisplay}°${isFahrenheit ? "F" : "C"}</div>
+        <img src="/images/${icon}" alt="Weather Icon" />
+        <p>${cityObj.label.toUpperCase()}</p>
+      </a>
+    `;
+
+    container.appendChild(tile); // Add the tile to the container on the page
+  });
+}
+
 // Wait until the page fully loads before running the script
 document.addEventListener("DOMContentLoaded", () => {
   weather.utils.applyTheme(); // Set the page theme based on user settings
@@ -74,53 +124,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------------------------------------------------
   renderCityTiles(prefs);
 });
-
-// -----------------------------------------------------------
-// Function: renderCityTiles(prefs)
-// Description: This builds the clickable city tiles on the dashboard
-// showing a mini weather summary for each favourite city.
-// -----------------------------------------------------------
-function renderCityTiles(prefs) {
-  // Get the user's list of favourite cities
-  const favourites = prefs.favourites || weather.utils.defaultPrefs.favourites;
-
-  const isFahrenheit = prefs.units === "fahrenheit"; // Check if user wants Fahrenheit instead of Celsius
-
-  const container = document.getElementById("city-tiles"); // Find the container where the city tiles will be added
-  if (!container) return; // Stop if the container isn't found
-
-  container.innerHTML = ""; // Clear out any existing tiles (e.g., if page is reloaded)
-
-  favourites.forEach((city) => {
-    // Loop through each favourite city
-
-    const daily = weather.dataStore.getDaily(city); // Get the daily weather data for that city
-
-    const cityObj = weather.dataStore.getByCity(city); // Get the city info (like label for display)
-
-    if (!daily || !cityObj) return; // Skip this city if the data isn't available
-
-    const code = daily.weather_code[0]; // Get the weather code for today (used to pick the icon)
-
-    const tempC = Math.round(daily.temperature_2m_max[0]); // Get today’s high temperature in Celsius and round it
-
-    const tempDisplay = isFahrenheit // Convert temperature to Fahrenheit if needed
-      ? weather.utils.toFahrenheit(tempC)
-      : tempC;
-
-    const icon = weather.weatherIcons[code] || "icons8-cloud-50.svg"; // Choose the correct weather icon, or use a cloud icon as default
-
-    const tile = document.createElement("div"); // Create a tile for this city and fill it with weather info
-    tile.className = "column is-one-third"; // Bulma layout class
-
-    tile.innerHTML = `
-      <a href="/city/?name=${city}" class="city-tile">
-        <div class="temp">${tempDisplay}°${isFahrenheit ? "F" : "C"}</div>
-        <img src="/images/${icon}" alt="Weather Icon" />
-        <p>${cityObj.label.toUpperCase()}</p>
-      </a>
-    `;
-
-    container.appendChild(tile); // Add the tile to the container on the page
-  });
-}
