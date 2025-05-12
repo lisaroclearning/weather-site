@@ -138,16 +138,10 @@ body.is-dark-mode {
 }
 
 .city-tile p {
-  font-size: clamp(
-    0.8rem,
-    2.5vw,
-    1.1rem
-  ); /* clamp to scale down on mobile but stay large on bigger */
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 /* --------------------------------------------------

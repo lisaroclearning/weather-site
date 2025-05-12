@@ -25,7 +25,9 @@
 // -----------------------------------------------------------
 function renderCityTiles(prefs) {
   // Get the user's list of favourite cities
-  const favourites = prefs.favourites || weather.utils.defaultPrefs.favourites;
+  const favourites = prefs.favourites?.length
+    ? prefs.favourites
+    : weather.utils.defaultPrefs.favourites;
 
   const isFahrenheit = prefs.units === "fahrenheit"; // Check if user wants Fahrenheit instead of Celsius
 
